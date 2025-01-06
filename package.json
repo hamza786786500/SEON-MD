@@ -14,6 +14,7 @@
     "@dark-yasiya/imgbb.js": "latest",
     "pixaldrain-sinhalasub": "git+https://github.com/DarkMakerofc/pixaldrain-sinhalasub.git",
     "pino": "^7.0.5",
+    "@blackamda/telegram-image-url": "^1.0.0",
     "pm2": "^5.2.0",
     "util": "^0.12.4",
     "express": "latest",

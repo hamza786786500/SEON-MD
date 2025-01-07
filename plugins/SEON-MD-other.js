@@ -1,1 +1,32 @@
-function _0x1571(){const _0x6fb540=['viewOnceMessage','quoted','ext','../config','error','@blackamda/telegram-image-url','imageMessage','132DUhGSJ','9mFeVTk','type','fromBuffer','277677jKegev','download','img2url','6361515LqwgbP','16GvuVMi','15583880cgkWTr','23611AWTidR','1528813WNxFzq','2286RXlNZb','.img2url\x20<reply\x20image>','ErROR.....','imgtourl','384214SefJIq','promises','../DATABASE/functions','convert','2058WkExdE','Error...','file-type','772ckOOUz','../command'];_0x1571=function(){return _0x6fb540;};return _0x1571();}const _0x533631=_0x2a91;(function(_0x262cb5,_0x289c6c){const _0x6b5a83=_0x2a91,_0x277181=_0x262cb5();while(!![]){try{const _0x36478f=-parseInt(_0x6b5a83(0x19a))/0x1*(parseInt(_0x6b5a83(0x1a9))/0x2)+parseInt(_0x6b5a83(0x1ad))/0x3*(parseInt(_0x6b5a83(0x1b0))/0x4)+parseInt(_0x6b5a83(0x1a0))/0x5+-parseInt(_0x6b5a83(0x1a5))/0x6*(-parseInt(_0x6b5a83(0x1a3))/0x7)+parseInt(_0x6b5a83(0x1a1))/0x8*(-parseInt(_0x6b5a83(0x19d))/0x9)+-parseInt(_0x6b5a83(0x1a2))/0xa+-parseInt(_0x6b5a83(0x1a4))/0xb*(-parseInt(_0x6b5a83(0x199))/0xc);if(_0x36478f===_0x289c6c)break;else _0x277181['push'](_0x277181['shift']());}catch(_0x449876){_0x277181['push'](_0x277181['shift']());}}}(_0x1571,0xd44c2));const {cmd,commands}=require(_0x533631(0x1b1));let {img2url}=require(_0x533631(0x197));const {getRandom}=require(_0x533631(0x1ab)),fs=require('fs'),config=require(_0x533631(0x195));function _0x2a91(_0x5c9c08,_0x57207f){const _0x1571d1=_0x1571();return _0x2a91=function(_0x2a91ee,_0x58476d){_0x2a91ee=_0x2a91ee-0x195;let _0x4d9c07=_0x1571d1[_0x2a91ee];return _0x4d9c07;},_0x2a91(_0x5c9c08,_0x57207f);}cmd({'pattern':_0x533631(0x19f),'react':'🔗','alias':['tourl','imgurl','telegraph',_0x533631(0x1a8)],'category':_0x533631(0x1ac),'use':_0x533631(0x1a6),'filename':__filename},async(_0xa24c11,_0x4cce86,_0x5d4757,{from:_0x1a7bb1,l:_0x590876,prefix:_0x3817ab,quoted:_0x2f5506,body:_0xa6353a,isCmd:_0x19e570,command:_0x5d158e,args:_0x24a8a2,q:_0x3c0a68,isGroup:_0x511f3e,sender:_0x2e31c7,senderNumber:_0x3378b6,botNumber2:_0xef1026,botNumber:_0x33aa35,pushname:_0x549afe,isMe:_0x1440e6,isOwner:_0x2815a0,groupMetadata:_0x1f1db6,groupName:_0x19dabd,participants:_0x34e0e0,groupAdmins:_0x5cb19f,isBotAdmins:_0x1b0cc7,isAdmins:_0x256f38,reply:_0x268686})=>{const _0x228596=_0x533631;try{const _0x1b3464=_0x5d4757[_0x228596(0x1b3)]?_0x5d4757[_0x228596(0x1b3)][_0x228596(0x19b)]===_0x228596(0x1b2):![],_0x4770f0=_0x5d4757['quoted']?_0x5d4757[_0x228596(0x1b3)][_0x228596(0x19b)]===_0x228596(0x198)||(_0x1b3464?_0x5d4757[_0x228596(0x1b3)]['msg']['type']==='imageMessage':![]):![];if(_0x5d4757[_0x228596(0x19b)]===_0x228596(0x198)||_0x4770f0){const _0x4124d5=require(_0x228596(0x1af));var _0x10a984=getRandom('');let _0x4e4312=_0x4770f0?await _0x5d4757[_0x228596(0x1b3)][_0x228596(0x19e)](_0x10a984):await _0x5d4757[_0x228596(0x19e)](_0x10a984),_0x4cb003=await _0x4124d5[_0x228596(0x19c)](_0x4e4312);await fs[_0x228596(0x1aa)]['writeFile']('./'+_0x4cb003[_0x228596(0x1b4)],_0x4e4312),img2url('./'+_0x4cb003[_0x228596(0x1b4)])['then'](async _0x11b63b=>{await _0x268686('\x0a'+_0x11b63b+'\x0a');});}}catch(_0x5a3b3f){console[_0x228596(0x196)](_0x228596(0x1ae),_0x5a3b3f),_0x268686(_0x228596(0x1a7));}});
+const { cmd, commands } = require('../command');
+let { img2url } = require('@blackamda/telegram-image-url');
+const { getRandom } = require('../lib/functions');
+const fs = require('fs');
+const config = require('../config')
+
+cmd({
+    pattern: "img2url",
+    react: "🔗",
+    alias: ["tourl","imgurl","telegraph","imgtourl"],
+    category: "convert",
+    use: '.img2url <reply image>',
+    filename: __filename
+},
+async(conn, mek, m,{from, l, prefix, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+    try{
+    const isQuotedViewOnce = m.quoted ? (m.quoted.type === 'viewOnceMessage') : false
+    const isQuotedImage = m.quoted ? ((m.quoted.type === 'imageMessage') || (isQuotedViewOnce ? (m.quoted.msg.type === 'imageMessage') : false)) : false
+    if ((m.type === 'imageMessage') || isQuotedImage) {
+const fileType = require("file-type");
+  var nameJpg = getRandom('');
+  let buff = isQuotedImage ? await m.quoted.download(nameJpg) : await m.download(nameJpg)
+  let type = await fileType.fromBuffer(buff);
+  await fs.promises.writeFile("./" + type.ext, buff);
+  img2url("./" + type.ext).then(async url => {
+    await reply('\n' + url + '\n');
+});
+}} catch (e) {
+    console.error("Error...", e);
+    reply("ErROR.....");
+}
+});
